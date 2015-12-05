@@ -15,7 +15,6 @@ q_elt::q_elt(void *elt, int size): elt(elt), size(size) {}
  * Copy constructor
  */
 Address::Address(const Address &anotherAddress) {
-	// strcpy(addr, anotherAddress.addr);
 	memcpy(&addr, &anotherAddress.addr, sizeof(addr));
 }
 
@@ -23,7 +22,6 @@ Address::Address(const Address &anotherAddress) {
  * Assignment operator overloading
  */
 Address& Address::operator =(const Address& anotherAddress) {
-	// strcpy(addr, anotherAddress.addr);
 	memcpy(&addr, &anotherAddress.addr, sizeof(addr));
 	return *this;
 }
@@ -34,7 +32,7 @@ Address& Address::operator =(const Address& anotherAddress) {
  * Return false/zero if they are different 
  */
 bool Address::operator ==(const Address& anotherAddress) {
-	return !memcmp(this->addr, anotherAddress.addr, sizeof(this->addr));
+	return memcmp(this->addr, anotherAddress.addr, sizeof(this->addr));
 }
 
 /**
